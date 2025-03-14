@@ -45,7 +45,7 @@ def convert_to_jsonl(input_path, output_path):
             conv_id = row['conv_id'].strip().split("_")[0].split(":")[1]
 
             # Limit the number of conversations to 100 (for training), 
-            if int(conv_id) > 75:
+            if int(conv_id) > 25:
                 break
 
             conv_groups[conv_id].append(row)
