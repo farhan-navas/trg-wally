@@ -30,18 +30,25 @@ TEST_OUTPUT_PATH = 'data/processed/empathetic-conversational-model/test.jsonl'
 def replace_comma(input: str) -> str:
     return input.replace("_comma_", ",")
 
-def convert_to_jsonl(input_path, output_path, type):
+def safe_float(x):
+    try:
+        return float(x)
+    except ValueError:
+        return 0
+
+def convert_to_jsonl(input_path, output_path):
     conv_groups = defaultdict(list)
     with open(input_path, 'r') as f:
         reader = csv.DictReader(f)
         for row in reader:
             # Split into numerical conversation ids
             conv_id = row['conv_id'].strip().split("_")[0].split(":")[1]
-            conv_groups[conv_id].append(row)
 
             # Limit the number of conversations to 100 (for training), 
-            if int(conv_id) > 100:
+            if int(conv_id) > 75:
                 break
+
+            conv_groups[conv_id].append(row)
 
     with open(output_path, 'w') as f:
         # Go through each conversation
@@ -58,6 +65,8 @@ def convert_to_jsonl(input_path, output_path, type):
             messages = []
             messages.append({"role": "system", "content": replace_comma(system_prompt)})
             speaker_idx = 0
+            curr_highest_avg = 0
+            curr_highest_idx = 0
 
             # Go through each row in the conversation
             for row in rows:
@@ -65,19 +74,31 @@ def convert_to_jsonl(input_path, output_path, type):
                 message = {"role": speaker_label, "content": replace_comma(row['utterance'].strip())}
 
                 self_eval = row['selfeval'].strip()
+                eval_str = self_eval.replace("_", "|")
+                all_scores = [safe_float(x) for x in eval_str.split("|") if x]
+                avg = sum(all_scores) / len(all_scores)
+
+                if avg > curr_highest_avg and speaker_label == "assistant":
+                    curr_highest_avg = avg
+                    curr_highest_idx = speaker_idx
 
                 # Assign weight to assistant message only if it has a high self-eval score
-                if speaker_label == "assistant" and (self_eval == "5|5|5_5|5|5" or self_eval == "4|5|5_5|5|5"):
+                if speaker_label == "assistant" and (eval_str == "5|5|5|5|5|5" or eval_str == "4|5|5|5|5|5"):
                     message["weight"] = 1
                 elif speaker_label == "assistant":
                     message["weight"] = 0
 
                 messages.append(message)
                 speaker_idx += 1
-            
+
+            messages[curr_highest_idx + 1]["weight"] = 1
+
+            while messages[len(messages) - 1]["role"] == "user":
+                messages.pop()
+
             f.write(json.dumps({"messages": messages}) + "\n")
 
 if __name__ == '__main__':
-    # convert_to_jsonl(TRAINING_INPUT_PATH, TRAINING_OUTPUT_PATH)
+    convert_to_jsonl(TRAINING_INPUT_PATH, TRAINING_OUTPUT_PATH)
     convert_to_jsonl(VALIDATION_INPUT_PATH, VALIDATION_OUTPUT_PATH)
     convert_to_jsonl(TEST_INPUT_PATH, TEST_OUTPUT_PATH)
