@@ -1,12 +1,12 @@
 import praw
 import json
 
-# Create reddit instance
+# Create reddit instance.
 reddit = praw.Reddit(user_agent = True, client_id = "lRdHZehU8QxMGQzIvSYLiQ", 
                      client_secret = "4YDwccpbiJVnFkHHYNpxzKRPffEjKQ", 
                      username = "H2REBE2R", password = "b2n2n2432")
 
-# Get subreddit instance
+# Get subreddit instance. Change this field to the subreddit you want to scrape.
 subreddit = reddit.subreddit("relationship_advice")
 
 # Initialize empty list to store posts
@@ -41,5 +41,7 @@ for submission in subreddit.hot(limit=10):
 
     posts.append(posts_data)
 
+# Save the posts to a JSON file, change the final path to the json file you want
+# to create.
 with open("../../data/processed/relationship_advice.json", "w") as f:
     json.dump(posts, f, indent=4)
