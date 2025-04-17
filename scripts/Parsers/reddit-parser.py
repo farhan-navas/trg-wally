@@ -43,5 +43,5 @@ for submission in subreddit.hot(limit=10):
 
 # Save the posts to a JSON file, change the final path to the json file you want
 # to create.
-with open("../../data/processed/relationship_advice.json", "w") as f:
+with open("../../data/raw/relationship_advice.json", "w") as f:
     json.dump(posts, f, indent=4)
