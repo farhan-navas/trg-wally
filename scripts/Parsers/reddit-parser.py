@@ -21,6 +21,7 @@ for submission in subreddit.hot(limit=10):
     # Append the submission title and URL to the posts list
     posts_data = {
         "title": submission.title,
+        "post author": str(submission.author),
         "text": submission.selftext,
         "comments": []
     }
@@ -31,8 +32,11 @@ for submission in subreddit.hot(limit=10):
         for comment in comments:
             if isinstance(comment, praw.models.MoreComments):
                 continue
+            # Extract username (or "[deleted]" if author is None)
+            comment_author = str(comment.author) if comment.author else "[deleted]"
             commentSection.append({
                 "body": comment.body,
+                "comment author": comment_author,
                 "replies": []
             })
             get_comments(comment.replies, commentSection[-1]["replies"])
@@ -43,5 +47,5 @@ for submission in subreddit.hot(limit=10):
 
 # Save the posts to a JSON file, change the final path to the json file you want
 # to create.
-with open("../../data/raw/relationship_advice.json", "w") as f:
+with open("../../data/raw/reddit/relationship_advice.json", "w") as f:
     json.dump(posts, f, indent=4)
