@@ -18,10 +18,13 @@ for submission in subreddit.hot(limit=10):
     if submission.stickied:
         continue
 
+    if submission.author is None or submission.author.name == "Justkeepitanonymous":
+        continue
+
     # Append the submission title and URL to the posts list
     posts_data = {
         "title": submission.title,
-        "post author": str(submission.author),
+        "post-author": str(submission.author),
         "text": submission.selftext,
         "comments": []
     }
@@ -32,11 +35,12 @@ for submission in subreddit.hot(limit=10):
         for comment in comments:
             if isinstance(comment, praw.models.MoreComments):
                 continue
-            # Extract username (or "[deleted]" if author is None)
-            comment_author = str(comment.author) if comment.author else "[deleted]"
+            if comment.author is None or comment.author.name == "Justkeepitanonymous": 
+                continue
+            comment_author = str(comment.author)
             commentSection.append({
                 "body": comment.body,
-                "comment author": comment_author,
+                "comment-author": comment_author,
                 "replies": []
             })
             get_comments(comment.replies, commentSection[-1]["replies"])
