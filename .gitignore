@@ -8,6 +8,7 @@
 
 # python venv
 venv/
+.venv/
 
 # kaggle token
 .kaggle/
