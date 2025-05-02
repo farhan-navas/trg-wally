@@ -1,6 +1,6 @@
 # DATASET STRUCTURE: https://www.kaggle.com/datasets/thedevastator/empathetic-conversational-model-benchmark/data
 # This script converts the dataset to jsonl format
-# Usage: python3 convert_to_jsonl.py
+# Usage: python3 create-training-data-ecm.py
 
 # Each CSV file contains rows corresponding to indiv turns within conversations, multiple data points per conversation
 # Additional colums capture metadata about the conversation. Columns are:
@@ -15,7 +15,6 @@
 
 import csv
 import json
-import sys
 from collections import defaultdict
 
 TRAINING_INPUT_PATH = 'data/raw/empathetic-conversational-model/train.csv'
