@@ -13,7 +13,7 @@ def convert_jsonl_to_json(input_jsonl_file, output_json_folder):
     
     # read jsonl file and aggregate data
     data = []
-    with open(input_jsonl_file, 'r') as jsonl_file:
+    with open(input_jsonl_file, 'r', encoding='utf-8') as jsonl_file:
         for line_number, line in enumerate(jsonl_file, start=1):
             line = line.strip()
             if not line:  # Skip empty lines (just in case)
@@ -24,14 +24,14 @@ def convert_jsonl_to_json(input_jsonl_file, output_json_folder):
                 print(f"Error decoding JSON on line {line_number}: {e}")
                 continue
     
-    with open(output_json_file, 'w') as json_file:
+    with open(output_json_file, 'w', encoding='utf-8') as json_file:
         json.dump(data, json_file, indent=4, ensure_ascii=False)
     
     print(f"Converted {input_jsonl_file} to {output_json_file}")
 
 # call conversion function
-input_jsonl_file = 'data/refined/reddit/train.jsonl' 
-output_json_folder = 'data/refined/reddit/'
+input_jsonl_file = 'data/preprocessed/reddit/train.jsonl' 
+output_json_folder = 'data/preprocessed/reddit/'
 convert_jsonl_to_json(input_jsonl_file, output_json_folder)
 
 # removed system messages from the JSONL file with the below code, using jq 

@@ -6,43 +6,44 @@ def flatten_markdown(markdown: str) -> str:
 
 if __name__ == '__main__':
     sample_md = """\
-Hey dear, it sounds like she’s feeling overlooked and wants more of your attention. Let’s break down a way to approach this:
+Hey, I’m really sorry you’re going through this. It sounds like you care a lot about him, but these “rules” are crossing into controlling territory—and that’s a red flag. Here’s what I’d think about:
+
+1. **Respect and Trust**
+
+   * Healthy relationships are built on mutual trust, not bans and policing.
+   * If he truly trusted you, he wouldn’t demand you cut off lifelong friendships or constantly check up on you.
+
+2. **Your Autonomy**
+
+   * You have the right to decide who you spend time with, what you wear, and when you come home.
+   * If you feel your freedom slipping away, it’s a sign you’re losing yourself in this relationship.
+
+3. **Double Standards and Misogyny**
+
+   * Calling other women “whores” and shaming you for the way you dress shows a lack of respect for women in general—including you.
+   * That mindset doesn’t just disappear once you move in together; it often gets worse behind closed doors.
+
+4. **His “Protection” vs. Control**
+
+   * It’s valid to worry about safety in your city—but forbidding everything isn’t protection, it’s control.
+   * If he truly cared, he’d help you find safe ways to get home (ride-share apps, travelling in groups) instead of setting curfews.
+
+5. **Weighing the “Good”**
+
+   * Financial support and kindness are wonderful—but they shouldn’t come at the cost of your independence and self-respect.
+   * Ask yourself: Will you feel valued or suffocated in the long term?
 
 ---
 
-**1. Acknowledge her feelings**
+**What you can do next**
 
-> “I see that you’ve been feeling like you’re not the center of my world right now, and that must be tough.”
+* **Have a heart-to-heart**: Tell him calmly how these rules make you feel. Real change only comes if he’s willing to listen and adjust.
+* **Set clear boundaries**: If he can’t respect your friendships, your choices, or your body autonomy, that boundary might need to be “I’ll walk away.”
+* **Lean on your support network**: Talk to friends or family you trust about what’s happening—they can remind you what a healthy relationship looks like.
+* **Consider your future**: A partner should lift you up, not tie you down. If you can’t imagine feeling free and respected, it might be time to break up.
 
-This shows you recognize her experience without minimizing it.
+At the end of the day, you deserve someone who trusts you completely, respects your choices, and treats you as an equal. If he can’t meet you there, it’s not you—it’s the relationship. 💛
 
-**2. Reflect on what she needs**
-Ask her directly:
-
-> “Can you tell me what makes you feel most valued and seen?”
-
-Maybe she needs more one-on-one time, verbal appreciation, or little gestures throughout the day.
-
-**3. Share your intentions**
-Let her know:
-
-> “I care about you deeply. It wasn’t my intention to make you feel second-place—sometimes I get caught up in other things and forget how important this is.”
-
-Owning that oversight can go a long way.
-
-**4. Co-create simple rituals**
-Brainstorm small but meaningful ways to show focus—like a daily “15-minute check-in,” surprise notes, or planning a mini date. Framing it together as something you both look forward to keeps it collaborative.
-
-**5. Keep checking in**
-After you try some of these rituals, circle back:
-
-> “How are you feeling about our check-ins? Is there anything I can do to make them more special?”
-
-This ongoing feedback loop prevents old patterns from sneaking back in.
-
----
-
-By validating her feelings, asking what she truly needs, and then following through with small, consistent actions, you’ll help her feel genuinely valued—without turning every moment into a spotlight, but by building shared moments of connection.
 """
 
     flattened = flatten_markdown(sample_md)
