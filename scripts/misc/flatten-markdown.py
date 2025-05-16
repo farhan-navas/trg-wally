@@ -6,56 +6,43 @@ def flatten_markdown(markdown: str) -> str:
 
 if __name__ == '__main__':
     sample_md = """\
-I hear how painful this pattern has been for you—always the “big sister” expected to cope on your own while your brother’s struggles get all the attention. That kind of childhood message (“your needs don’t matter as much”) can leave you feeling hurt, resentful, and invisible. Let’s look at some ways to begin shifting those family dynamics and honouring your own needs.
+Hey dear, it sounds like she’s feeling overlooked and wants more of your attention. Let’s break down a way to approach this:
 
 ---
 
-### 1. Name and validate the old story
+**1. Acknowledge her feelings**
 
-* **Acknowledge the pattern**: “You’ve grown up feeling like your own hurts weren’t worth noticing.”
-* **Own your feelings**: It’s okay to be angry, sad, or disappointed about the unfairness you experienced.
+> “I see that you’ve been feeling like you’re not the center of my world right now, and that must be tough.”
 
-### 2. Reframe expectations of your parents
+This shows you recognize her experience without minimizing it.
 
-* Your parents’ reflex to rush to your brother doesn’t necessarily mean they love you less—it may just be an overlearned caretaking script.
-* By recognizing it as a habit rather than a judgment on your worth, you can start to detach your self-value from their reactions.
+**2. Reflect on what she needs**
+Ask her directly:
 
-### 3. Communicate your needs directly
+> “Can you tell me what makes you feel most valued and seen?”
 
-* **Choose one parent at a time**, and a calm moment:
+Maybe she needs more one-on-one time, verbal appreciation, or little gestures throughout the day.
 
-* “I wanted to share how overlooked I felt growing up when you focused on [Brother]. It still stings.”
-* Focus on **“I” statements**: “I need you to hear me and acknowledge my pain, too.”
-* **Be specific**: Give an example (“When I had [X crisis], I felt alone. That pattern makes today’s hurt even sharper.”)
+**3. Share your intentions**
+Let her know:
 
-### 4. Set compassionate boundaries
+> “I care about you deeply. It wasn’t my intention to make you feel second-place—sometimes I get caught up in other things and forget how important this is.”
 
-* If you start to feel dismissed mid-conversation:
+Owning that oversight can go a long way.
 
-* “I’m becoming upset. Can we pause and try again later?”
-* This models for them how to respect your emotional limits.
-* Decide what support you want: an apology? a listening ear? practical help? Articulate it.
+**4. Co-create simple rituals**
+Brainstorm small but meaningful ways to show focus—like a daily “15-minute check-in,” surprise notes, or planning a mini date. Framing it together as something you both look forward to keeps it collaborative.
 
-### 5. Enlist an ally or neutral third party
+**5. Keep checking in**
+After you try some of these rituals, circle back:
 
-* A **family therapist** or mediator can gently point out these long-standing patterns and help everyone learn to listen equitably.
-* If your parents resist therapy, consider talking first with a close cousin, aunt/uncle, or family friend who understands both sides and can advocate for you.
+> “How are you feeling about our check-ins? Is there anything I can do to make them more special?”
 
-### 6. Lean into your own support network
-
-* Cultivate friendships or support groups where **your feelings do matter**—let them celebrate you for “figuring things out,” but also hear and hold your pain.
-* Journaling, coaching, or a therapist for yourself can help unpack decades of being the “resilient one.”
-
-### 7. Practice self-compassion rituals
-
-* When old stories surface (“I shouldn’t complain because I’m the strong child”), counter with:
-
-* “It’s okay to lean on others, even if I’ve been the helper for so long.”
-* Daily reminders: a mantra, a small treat, a grounding breath practice.
+This ongoing feedback loop prevents old patterns from sneaking back in.
 
 ---
 
-**Remember:** rewiring a family dynamic takes time and repeated gentle corrections. By naming the old script, speaking your truth, and inviting your parents into a new way of relating, you’ll gradually shift the balance—so that your hurts get the care they deserve, too. You absolutely deserve to be seen and supported.
+By validating her feelings, asking what she truly needs, and then following through with small, consistent actions, you’ll help her feel genuinely valued—without turning every moment into a spotlight, but by building shared moments of connection.
 """
 
     flattened = flatten_markdown(sample_md)
