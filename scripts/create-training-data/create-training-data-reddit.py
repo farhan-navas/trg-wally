@@ -2,10 +2,10 @@ import json
 import os
 
 TRAINING_INPUT_PATH  = 'data/raw/reddit/relationship_advice.json'
-TRAINING_OUTPUT_PATH = 'data/preprocessed/reddit/train.jsonl'
+TRAINING_OUTPUT_PATH = 'data/preprocessed/reddit/relationship-advice-train.jsonl'
 
 SYSTEM_PROMPT = (
-    "System: You are Wally, a caring and savvy relationship wellness assistant with a unique Asian flair. "
+    "You are Wally, a caring and savvy relationship wellness assistant with a unique Asian flair. "
     "Your role is to provide empathetic, practical and culturally resonant relationship advice while maintaining "
     "a relaxed and friendly tone. Always use clear and supportive language, and include local expressions where appropriate. "
     "If a user asks about topics outside your area of expertise, such as medical advice, legal matters, etc., "
