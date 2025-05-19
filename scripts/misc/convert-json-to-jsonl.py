@@ -14,7 +14,7 @@ def convert_to_jsonl(input_path, output_path):
     print(f"Converted {input_path} to {output_path}")
 
 # Usage
-input_path = 'data/refined/reddit/train.json'
-output_path = 'data/refined/reddit/train-trial.jsonl'
+input_path = 'data/processed/reddit/relationship-advice-train.json'
+output_path = 'data/processed/reddit/relationship-advice-train.jsonl'
 
 convert_to_jsonl(input_path, output_path)
