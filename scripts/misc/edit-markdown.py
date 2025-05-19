@@ -4,6 +4,9 @@ def flatten_markdown(markdown: str) -> str:
     lines = markdown.splitlines()
     return '/n'.join(lines)
 
+def unflatten_markdown(markdown: str) -> str:
+    return markdown.replace('/n', '\n')
+
 def flatten_markdown_file(file_path: str) -> str:
       with open(file_path, 'r', encoding='utf-8') as f:
          markdown = f.read()
