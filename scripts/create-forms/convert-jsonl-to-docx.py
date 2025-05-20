@@ -1,3 +1,4 @@
+import os
 import json
 import pypandoc
 
@@ -32,13 +33,16 @@ def convert_jsonl_to_docx(file_name: str, conversations: list, output_path: str)
 
         # convert markdown into a .docx
         out_file = f"{output_path}-{idx}.docx"
+        os.makedirs(os.path.dirname(out_file), exist_ok=True)
         pypandoc.convert_text(
             full_md,
             to="docx",
             format="md",
             outputfile=out_file
         )
-        print(f"✅ Saved {out_file}")
+        print(f"Saved {out_file}")
+
+    print(f"✅ Converted {len(conversations)} conversations to {output_path}*.docx")
 
 if __name__ == '__main__':
     input_path = 'data/processed/reddit/relationship-advice-train.jsonl'

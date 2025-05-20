@@ -1,7 +1,7 @@
+import os
+import re
 import json
 import glob
-import re
-from docx import Document
 import pypandoc
 
 def convert_docx_to_markdown(docx_path: str) -> str:
@@ -30,7 +30,9 @@ def convert_docx_folder_to_json(docx_folder_pattern: str, output_json: str):
     for path in files:
         convo = parse_docx_to_convo(path)
         all_convos.append(convo)
+        print(f"Converted {path} into a convo of {len(convo['messages'])} messages")
 
+    os.makedirs(os.path.dirname(output_json), exist_ok=True)
     with open(output_json, 'w', encoding='utf-8') as f:
         json.dump(all_convos, f, ensure_ascii=False, indent=2)
 
