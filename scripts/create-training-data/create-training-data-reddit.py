@@ -1,8 +1,8 @@
 import json
 import os
 
-TRAINING_INPUT_PATH  = 'data/raw/reddit/relationship_advice.json'
-TRAINING_OUTPUT_PATH = 'data/preprocessed/reddit/relationship-advice-train.jsonl'
+TRAINING_INPUT_PATH  = 'data/raw/reddit/advice.json'
+TRAINING_OUTPUT_PATH = 'data/preprocessed/reddit/advice-train.jsonl'
 
 SYSTEM_PROMPT = (
     "You are Wally, a caring and savvy relationship wellness assistant with a unique Asian flair. "
