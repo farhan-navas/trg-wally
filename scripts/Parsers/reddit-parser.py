@@ -13,7 +13,7 @@ subreddit = reddit.subreddit("WorkAdvice")
 posts = []
 
 # Iterate through the new submission in the subreddit
-for submission in subreddit.hot(limit=10):
+for submission in subreddit.hot(limit=150):
 
     if submission.stickied:
         continue
