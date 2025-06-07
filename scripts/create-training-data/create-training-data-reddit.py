@@ -1,8 +1,8 @@
 import json
 import os
 
-TRAINING_INPUT_PATH  = 'data/raw/reddit/advice.json'
-TRAINING_OUTPUT_PATH = 'data/preprocessed/reddit/advice-train.jsonl'
+TRAINING_INPUT_PATH  = 'data/raw/reddit/WorkAdvice.json'
+TRAINING_OUTPUT_PATH = 'data/preprocessed/reddit/WorkAdvice.jsonl'
 
 SYSTEM_PROMPT = (
     "You are Wally, a caring and savvy relationship wellness assistant with a unique Asian flair. "
@@ -58,7 +58,7 @@ def convert_reddit_threads(input_path, output_path):
                     continue
 
                 messages = build_chain_messages(title, post_text, top)
-                if len(messages) > 2:
+                if len(messages) > 6:
                     out.write(json.dumps({"messages": messages}, ensure_ascii=False) + "\n")
                     count += 1
 
