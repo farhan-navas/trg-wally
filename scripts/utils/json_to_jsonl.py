@@ -1,6 +1,5 @@
-# Script to convert JSONL files to JSON format, for easier readability and processing.
+# Script to convert JSON files to JSONL format, for API
 
-import os
 import json
 
 def convert_to_jsonl(input_path, output_path):
@@ -11,10 +10,8 @@ def convert_to_jsonl(input_path, output_path):
         for item in data:
             f.write(json.dumps(item, ensure_ascii=False) + '\n')
     
-    print(f"Converted {input_path} to {output_path}")
+    print(f"[json_to_jsonl] converted {input_path} to {output_path}")
 
 # Usage
 input_path = 'data/processed/reddit/relationship-advice-train.json'
 output_path = 'data/processed/reddit/relationship-advice-train.jsonl'
-
-convert_to_jsonl(input_path, output_path)
