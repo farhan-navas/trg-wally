@@ -16,8 +16,8 @@ def parse_docx_to_convo(docx_path: str) -> dict:
 
     messages = []
     for i in range(1, len(parts), 2):
-        role = parts[i].lower()               # will come out to "assistant", "user", or "system"
-        content = parts[i+1].strip()          # the markdown content under that heading
+        role = parts[i].lower()               # will be either "assistant", "user", or "system"
+        content = parts[i+1].strip()          # markdown content under that heading
         messages.append({"role": role, "content": content})
 
     return {"messages": messages}
@@ -30,7 +30,7 @@ def convert_docx_folder_to_json(docx_folder_pattern: str, output_json: str):
     for path in files:
         convo = parse_docx_to_convo(path)
         all_convos.append(convo)
-        print(f"Converted {path} into a convo of {len(convo['messages'])} messages")
+        print(f"Converted {path.split("/")[-1]} into a convo of {len(convo['messages'])} messages")
 
     os.makedirs(os.path.dirname(output_json), exist_ok=True)
     with open(output_json, 'w', encoding='utf-8') as f:
@@ -38,12 +38,8 @@ def convert_docx_folder_to_json(docx_folder_pattern: str, output_json: str):
 
     print(f"✅ Wrote {len(all_convos)} conversations to {output_json}")
 
-if __name__ == "__main__":
-    convert_docx_folder_to_json(
-        docx_folder_pattern="data/processed-word-docs/english/reddit/relationship-advice-*.docx",
-        output_json="data/processed/reddit/trial.json"
-    )
-
-    # with open("data/processed/reddit/trial.json", 'w', encoding='utf-8') as f:
-    #     convo = parse_docx_to_convo("data/processed-word-docs/english/reddit/relationship-advice-1.docx")
-    #     json.dump(convo, f, ensure_ascii=False, indent=2) 
+# if __name__ == "__main__":
+#     convert_docx_folder_to_json(
+#         docx_folder_pattern="data/processed-word-docs/english/reddit/relationship-advice-*.docx",
+#         output_json="data/processed/reddit/trial.json"
+#     )
