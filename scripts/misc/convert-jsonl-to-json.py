@@ -30,7 +30,7 @@ def convert_jsonl_to_json(input_jsonl_file, output_json_folder):
     print(f"Converted {input_jsonl_file} to {output_json_file}")
 
 # call conversion function
-input_jsonl_file = 'data/preprocessed/reddit/train.jsonl' 
+input_jsonl_file = 'data/preprocessed/reddit/advice-train.jsonl' 
 output_json_folder = 'data/preprocessed/reddit/'
 convert_jsonl_to_json(input_jsonl_file, output_json_folder)
 

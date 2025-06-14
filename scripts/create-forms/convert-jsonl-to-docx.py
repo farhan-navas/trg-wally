@@ -46,14 +46,19 @@ def convert_jsonl_to_docx(file_name: str, conversations: list, output_path: str)
 
 #changed to create folder and move docs into it
 if __name__ == '__main__':
-    input_path = 'data/preprocessed/reddit/advice-train.jsonl'
+    #change
+    input_path = 'data/preprocessed/reddit/askSingapore-train.jsonl'
     conversations = read_conversation_from_jsonl(input_path)
 
+    #change
     base_dir    = r'data/processed-word-docs/english/reddit'
-    folder_name = 'advice'
+    folder_name = 'ask-singapore'
+
     folder_path = os.path.join(base_dir, folder_name)
     os.makedirs(folder_path, exist_ok=True)
-    output_path = os.path.join(folder_path, 'advice')
+    
+    #change name
+    output_path = os.path.join(folder_path, 'ask-singapore')
 
     convert_jsonl_to_docx(
         'Advice Dataset',
